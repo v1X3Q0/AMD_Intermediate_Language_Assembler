@@ -1,0 +1,11 @@
+il_vs_2_0
+dcl_global_flags refactoringAllowed
+dcl_resource_id(0)_type(buffer)_fmtx(float)_fmty(float)_fmtz(float)_fmtw(float)
+dcl_resource_id(1)_type(buffer)_fmtx(float)_fmty(float)_fmtz(float)_fmtw(float)
+dcl_input_vertexid v0.x___
+dcl_output_position o0
+dcl_output_generic o1
+load_resource(0)_sampler(0) o0, v0.x
+load_resource(1)_sampler(0) o1, v0.x
+ret_dyn
+end

@@ -1,0 +1,8 @@
+il_ps_2_0
+dcl_global_flags refactoringAllowed
+dcl_input_generic_interp(linear) v1
+dcl_output_generic o0
+mov r4096, v1
+mov o0, r4096
+ret_dyn
+end
