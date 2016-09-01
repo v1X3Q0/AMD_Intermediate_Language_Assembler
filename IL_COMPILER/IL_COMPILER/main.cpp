@@ -185,6 +185,8 @@ DWORD isReg(string reg)
 		return IL_REGTYPE_THREAD_ID_IN_GROUP_FLAT << 16;
 	else if (0 == reg.find("vTidInGrp"))
 		return IL_REGTYPE_THREAD_ID_IN_GROUP << 16;
+	else if (0 == reg.find("vAbsTid"))
+		return IL_REGTYPE_ABSOLUTE_THREAD_ID << 16;
 	switch (reg[0])
 	{
 	case 'v':
@@ -538,6 +540,20 @@ int main(int argc, char** argv)
 						out_tok = IL_OP_UAV_STRUCT_LOAD;
 					else if (str_[2] == "store")
 						out_tok = IL_OP_UAV_STRUCT_STORE;
+					out_tok |= atoi(str_[4].c_str()) << 16;
+					outFile(&outfile, out_tok);
+					tokens >> token;
+					getReg(&outfile, token);
+					tokens >> token;
+					getReg(&outfile, token, 1);
+				}
+			}
+			else if (str_[0] == "srv")
+			{
+				if (str_[1] == "struct")
+				{
+					if (str_[2] == "load")
+						out_tok = IL_OP_SRV_STRUCT_LOAD;
 					out_tok |= atoi(str_[4].c_str()) << 16;
 					outFile(&outfile, out_tok);
 					tokens >> token;
