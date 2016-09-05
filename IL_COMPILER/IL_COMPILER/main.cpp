@@ -546,6 +546,11 @@ int main(int argc, char** argv)
 					getReg(&outfile, token);
 					tokens >> token;
 					getReg(&outfile, token, 1);
+					if (str_[2] == "store")
+					{
+						tokens >> token;
+						getReg(&outfile, token, 1);
+					}
 				}
 			}
 			else if (str_[0] == "srv")
